@@ -1,3 +1,3 @@
-### Auth
+# Auth
 
-# Better-Auth
+## Better-Auth
