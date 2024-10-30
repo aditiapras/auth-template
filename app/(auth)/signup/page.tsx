@@ -1,13 +1,14 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { Check, Eye, EyeOff, Quote, X } from "lucide-react";
 import { useMemo, useState } from "react";
+import { Button } from "@/components/ui/button";
+import ModeToggle from "@/components/toggle-theme";
 
-export default function SignInPage() {
+export default function SignUpPage() {
   const [password, setPassword] = useState("");
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -49,25 +50,26 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-zinc-50">
-      {/* <div className="w-full max-w-4xl flex overflow-hidden"> */}
+    <div className="relative min-h-screen flex items-center justify-center">
+      <div className="absolute top-5 right-5">
+        <ModeToggle />
+      </div>
       <div className="hidden lg:block md:w-3/5 relative">
         <div className="max-w-md mx-auto relative">
           <Quote className="absolute -top-16 -left-5 text-zinc-500 size-10" />
-          {/* <p className="absolute -top-16 -left-5 text-zinc-500 text-8xl">"</p> */}
-          <p className="text-2xl font-semibold text-zinc-900 relative">
+          <p className="text-2xl font-semibold text-zinc-900 relative dark:text-zinc-100 z-10">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
             tempore vel exercitationem consequuntur illo? Maxime quasi
             voluptates praesentium quos facilis?
           </p>
         </div>
-        <div className="absolute rounded-full w-1/3 h-10 animate-pulse bg-teal-500/50 blur-3xl top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 rotate-45"></div>
-        <div className="absolute rounded-full w-1/3 h-10 animate-pulse bg-emerald-500/50 blur-3xl top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 -rotate-45"></div>
+        <div className="absolute rounded-full w-1/3 h-10 animate-pulse duration-1000 bg-teal-500/80 blur-3xl top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 rotate-45"></div>
+        <div className="absolute rounded-full w-1/3 h-10 animate-pulse bg-emerald-500/80 blur-3xl top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 -rotate-45 duration-700"></div>
       </div>
-      <div className="w-full lg:w-2/5 p-10 flex shadow-lg border-l h-screen justify-center items-center border-zinc-300 bg-zinc-100">
+      <div className="w-full lg:w-2/5 p-10 flex shadow-2xl  border-l h-screen justify-center items-center border-zinc-300 bg-supaNeutral-8 dark:bg-supaNeutral-3 dark:border-supaNeutral-4">
         <div className="w-full max-w-md mx-auto">
           <div className="p-0 mb-4">
-            <p className="text-2xl font-bold">Sign up</p>
+            <p className="text-2xl font-bold dark:text-zinc-100">Sign up</p>
             <p className="text-sm text-zinc-500 mt-2">
               Create an account to get started
             </p>
@@ -76,7 +78,7 @@ export default function SignInPage() {
           <div className="mt-8">
             <Button
               variant="outline"
-              className="w-full hover:bg-emerald-50 hover:border hover:border-emerald-500"
+              className="w-full hover:bg-emerald-50 hover:border hover:border-emerald-500 dark:bg-supaNeutral-4 dark:border-neutral-600 dark:hover:bg-supaNeutral-5"
             >
               <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
                 <path
@@ -101,9 +103,9 @@ export default function SignInPage() {
             </Button>
           </div>
           <div className="flex gap-4 w-full items-center my-5">
-            <Separator className="w-[45%] bg-zinc-300" />
+            <Separator className="w-[45%] bg-zinc-300 dark:bg-neutral-700" />
             <p className="text-sm text-zinc-500 w-[10%] text-center">or</p>
-            <Separator className="w-[45%] bg-zinc-300" />
+            <Separator className="w-[45%] bg-zinc-300 dark:bg-neutral-700" />
           </div>
           <form>
             <div className="flex flex-col gap-4">
@@ -114,7 +116,7 @@ export default function SignInPage() {
                   placeholder="John Doe"
                   type="text"
                   required
-                  className="transition-all duration-300 focus-visible:ring-offset-0 focus-visible:ring-1 ring-offset-emerald-400 focus-visible:ring-emerald-400"
+                  className="transition-all duration-300 focus-visible:ring-offset-0 focus-visible:ring-1 ring-offset-emerald-400 focus-visible:ring-emerald-400 dark:bg-neutral-900 dark:border-neutral-600"
                 />
               </div>
               <div className="space-y-2">
@@ -124,17 +126,16 @@ export default function SignInPage() {
                   placeholder="m@example.com"
                   type="email"
                   required
-                  className="transition-all duration-300 focus-visible:ring-offset-0 focus-visible:ring-1 ring-offset-emerald-400 focus-visible:ring-emerald-400"
+                  className="transition-all duration-300 focus-visible:ring-offset-0 focus-visible:ring-1 ring-offset-emerald-400 focus-visible:ring-emerald-400 dark:bg-neutral-900 dark:border-neutral-600"
                 />
               </div>
               <div className="">
-                {/* Password input field with toggle visibility button */}
                 <div className="space-y-2">
                   <Label htmlFor="password">Password</Label>
                   <div className="relative">
                     <Input
                       id="password"
-                      className="pe-9 transition-all duration-300 focus-visible:ring-offset-0 focus-visible:ring-1 ring-offset-emerald-400 focus-visible:ring-emerald-400"
+                      className="pe-9 transition-all duration-300 focus-visible:ring-offset-0 focus-visible:ring-1 ring-offset-emerald-400 focus-visible:ring-emerald-400 dark:bg-neutral-900 dark:border-neutral-600"
                       placeholder="Password"
                       type={isVisible ? "text" : "password"}
                       value={password}
@@ -170,7 +171,6 @@ export default function SignInPage() {
                 </div>
                 {password.length > 0 && (
                   <>
-                    {/* Password strength indicator */}
                     <div
                       className="mb-4 mt-3 h-1 w-full overflow-hidden rounded-full bg-border"
                       role="progressbar"
@@ -187,15 +187,13 @@ export default function SignInPage() {
                       ></div>
                     </div>
 
-                    {/* Password strength description */}
                     <p
                       id="password-strength"
-                      className="mb-2 text-sm font-medium text-foreground"
+                      className="mb-2 text-sm font-medium text-foreground dark:text-zinc-100"
                     >
                       {getStrengthText(strengthScore)}. Must contain:
                     </p>
 
-                    {/* Password requirements list */}
                     <ul
                       className="space-y-1.5"
                       aria-label="Password requirements"
@@ -219,7 +217,7 @@ export default function SignInPage() {
                             className={`text-xs ${
                               req.met
                                 ? "text-emerald-500"
-                                : "text-muted-foreground"
+                                : "text-muted-foreground dark:text-zinc-400"
                             }`}
                           >
                             {req.text}
@@ -235,13 +233,13 @@ export default function SignInPage() {
                   </>
                 )}
               </div>
-              <Button className="w-full mt-5 bg-emerald-400 border border-emerald-500 hover:bg-emerald-300 text-emerald-900">
+              <Button className="w-full mt-5 border text-supaNeutral-1 border-supaPrimary-1 bg-supaPrimary-4 hover:bg-supaPrimary-3 dark:bg-supaPrimary-1 dark:hover:bg-supaPrimary-2 dark:text-white ">
                 Sign up
               </Button>
             </div>
           </form>
           <div className="mt-5 text-center text-sm">
-            <p className="text-primary flex items-center justify-center gap-1">
+            <p className="text-primary flex items-center justify-center gap-1 dark:text-zinc-400">
               Already have an account?
               <Link href="/signin" className="underline hover:text-emerald-500">
                 Sign in here
@@ -250,7 +248,6 @@ export default function SignInPage() {
           </div>
         </div>
       </div>
-      {/* </div> */}
     </div>
   );
 }

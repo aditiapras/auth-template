@@ -50,6 +50,26 @@ const config: Config = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
+			supaPrimary: {
+				'1': 'hsl(var(--supaPrimary-1))',
+				'2': 'hsl(var(--supaPrimary-2))',
+				'3': 'hsl(var(--supaPrimary-3))',
+				'4': 'hsl(var(--supaPrimary-4))',
+				'5': 'hsl(var(--supaPrimary-5))',
+				'6': 'hsl(var(--supaPrimary-6))',
+				'7': 'hsl(var(--supaPrimary-7))',
+				'8': 'hsl(var(--supaPrimary-8))'
+			},
+			supaNeutral: {
+				'1': 'hsl(var(--supaNeutral-1))',
+				'2': 'hsl(var(--supaNeutral-2))',
+				'3': 'hsl(var(--supaNeutral-3))',
+				'4': 'hsl(var(--supaNeutral-4))',
+				'5': 'hsl(var(--supaNeutral-5))',
+				'6': 'hsl(var(--supaNeutral-6))',
+				'7': 'hsl(var(--supaNeutral-7))',
+				'8': 'hsl(var(--supaNeutral-8))'
+			},
   			sidebar: {
   				DEFAULT: 'hsl(var(--sidebar-background))',
   				foreground: 'hsl(var(--sidebar-foreground))',

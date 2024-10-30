@@ -27,14 +27,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const SquareBackground = () => {
-  return (
-    <div className="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-zinc-900 [background:radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:[background:radial-gradient(rgba(255,255,255,0.1)_1px,transparent_1px)]">
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white to-white opacity-30 dark:from-transparent dark:via-zinc-900 dark:to-zinc-900"></div>
-    </div>
-  );
-};
-
 const pricingPlans = [
   {
     name: "Starter",
@@ -127,7 +119,6 @@ export default function Home() {
 
   return (
     <main className="relative flex min-h-screen flex-col">
-      <SquareBackground />
       {/* Navigation */}
       <nav
         className={`fixed top-0 z-50 w-full transform bg-white/80 backdrop-blur-md transition-transform duration-300 ease-in-out dark:bg-neutral-900/80 ${
@@ -211,8 +202,13 @@ export default function Home() {
 
       {/* Background Gradients */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute -left-24 -top-24 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-emerald-400/20 to-teal-500/20 blur-[128px] dark:from-emerald-400/20 dark:to-teal-500/20" />
-        <div className="absolute right-1/4 bottom-1/4 h-[400px] w-[400px] animate-pulse rounded-full bg-gradient-to-l from-teal-500/20 to-cyan-500/20 blur-[96px] dark:from-teal-500/20 dark:to-cyan-500/20" />
+        <div className="absolute -left-24 -top-24 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-emerald-400/30 to-teal-500/30 blur-[128px] dark:from-emerald-400/50 dark:to-teal-500/50" />
+        <div className="absolute -right-24 -top-24 h-[500px] w-[500px] rounded-full bg-gradient-to-bl from-emerald-500/30 to-cyan-500/30 blur-[128px] dark:from-emerald-500/50 dark:to-cyan-500/50" />
+        <div className="absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 transform rotate-45 bg-gradient-to-tr from-teal-400/25 via-emerald-500/25 to-cyan-400/25 blur-[96px] dark:from-teal-400/40 dark:via-emerald-500/40 dark:to-cyan-400/40" />
+        <div className="absolute -bottom-24 -left-24 h-[500px] w-[500px] rounded-full bg-gradient-to-tr from-teal-500/30 to-emerald-400/30 blur-[128px] dark:from-teal-500/50 dark:to-emerald-400/50" />
+        <div className="absolute -bottom-24 -right-24 h-[500px] w-[500px] rounded-full bg-gradient-to-tl from-cyan-500/30 to-emerald-500/30 blur-[128px] dark:from-cyan-500/50 dark:to-emerald-500/50" />
+        <div className="absolute left-1/4 top-1/4 h-[400px] w-[400px] animate-pulse rounded-full bg-gradient-to-r from-emerald-500/35 to-teal-500/35 blur-[96px] dark:from-emerald-500/60 dark:to-teal-500/60" />
+        <div className="absolute right-1/4 bottom-1/4 h-[400px] w-[400px] animate-pulse rounded-full bg-gradient-to-l from-teal-500/35 to-cyan-500/35 blur-[96px] dark:from-teal-500/60 dark:to-cyan-500/60" />
       </div>
 
       {/* Content */}
@@ -398,112 +394,6 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Reviews Section */}
-        <section id="reviews" className="relative py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-                What Our Customers Say
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-                Don't just take our word for it. Here's what our customers have
-                to say about YourBrand.
-              </p>
-            </div>
-            <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
-              {[
-                {
-                  name: "Alex Johnson",
-                  role: "CTO, TechStart Inc.",
-                  content:
-                    "YourBrand has revolutionized our backend infrastructure. It's saved us countless hours and allowed us to focus on what we do best - building great products.",
-                },
-                {
-                  name: "Sarah Lee",
-                  role: "Founder, DataDrive",
-                  content:
-                    "The scalability and reliability of YourBrand's services have been crucial to our growth. Their support team is also top-notch.",
-                },
-                {
-                  name: "Michael Chen",
-                  role: "Lead Developer, AppMakers",
-                  content:
-                    "I've worked with many backend solutions, but YourBrand stands out for its ease of use and powerful features. It's become an indispensable part of our tech stack.",
-                },
-              ].map((review, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col justify-between rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-900/5 dark:bg-zinc-800 dark:ring-white/10"
-                >
-                  <blockquote className="text-zinc-600 dark:text-zinc-400">
-                    <p>"{review.content}"</p>
-                  </blockquote>
-                  <div className="mt-6 flex items-center">
-                    <div className="h-10 w-10 rounded-full bg-zinc-400"></div>
-                    <div className="ml-3">
-                      <p className="font-semibold text-zinc-900 dark:text-zinc-100">
-                        {review.name}
-                      </p>
-                      <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                        {review.role}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section id="faq" className="relative py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-                Frequently Asked Questions
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-                Find answers to common questions about our services.
-              </p>
-            </div>
-            <div className="mt-16 max-w-2xl mx-auto">
-              <Accordion type="single" collapsible className="w-full">
-                {[
-                  {
-                    question: "What is YourBrand?",
-                    answer:
-                      "YourBrand is a comprehensive backend infrastructure solution for modern applications, offering authentication, storage, and database services.",
-                  },
-                  {
-                    question: "How does pricing work?",
-                    answer:
-                      "We offer tiered pricing plans to suit different needs, from startups to enterprise-level organizations. Check our pricing section for more details.",
-                  },
-                  {
-                    question: "Is there a free trial?",
-                    answer:
-                      "Yes, we offer a 14-day free trial on our Starter and Pro plans. No credit card required to start.",
-                  },
-                  {
-                    question: "How secure is your platform?",
-                    answer:
-                      "Security is our top priority. We use industry-standard encryption, regular security audits, and comply with major data protection regulations.",
-                  },
-                ].map((faq, index) => (
-                  <AccordionItem key={`item-${index}`} value={`item-${index}`}>
-                    <AccordionTrigger className="text-left text-zinc-900 dark:text-zinc-100">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-zinc-600 dark:text-zinc-400">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
             </div>
           </div>
         </section>
